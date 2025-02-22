@@ -18,14 +18,26 @@
 
     <PropertyGroup>
         <DalamudLibPath>$(appdata)\XIVLauncherCN\addon\Hooks\dev\</DalamudLibPath>
+        <!--<DevPluginsPath>G:\FFXIV\Dalamud Related\_devPlugins\</DevPluginsPath>
+        <PluginsRepoPath>D:\DalamudProj\DalamudPlugins\plugins\</PluginsRepoPath>-->
     </PropertyGroup>
-    
+
+    <!--<Target Name="CopyCustomContent" AfterTargets="DefaultDalamudPackagerRelease">
+        <ItemGroup>
+            <PluginDevFiles Include="bin/**" Exclude="bin/$(ProjectName)/**" />
+        </ItemGroup>
+        <ItemGroup>
+            <PluginPubFiles Include="bin\$(ProjectName)\**" />
+        </ItemGroup>
+        <Copy SourceFiles="@(PluginDevFiles)" DestinationFolder="$(DevPluginsPath)$(ProjectName)\"/>
+        <Copy SourceFiles="@(PluginPubFiles)" DestinationFolder="$(PluginsRepoPath)$(ProjectName)\" />
+    </Target>-->
 
     <ItemGroup>
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="DalamudPackager" Version="2.1.13" MakeZip="true"/>
+        <PackageReference Include="DalamudPackager" Version="2.1.13" MakeZip="true" />
+        <Reference Include="ECommons">
+          <HintPath>..\..\ECommons\ECommons\bin\Release\ECommons.dll</HintPath>
+        </Reference>
         <Reference Include="FFXIVClientStructs">
             <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
             <Private>false</Private>
@@ -55,13 +67,10 @@
             <Private>false</Private>
         </Reference>
         <Reference Include="OtterGui">
-            <HintPath>$(DalamudLibPath)OtterGui.dll</HintPath>
-            <Private>true</Private>
+          <HintPath>C:\Users\xww\AppData\Roaming\XIVLauncherCN\addon\Hooks\dev\OtterGui.dll</HintPath>
         </Reference>
-        <Reference Include="ECommons">
-            <HintPath>$(DalamudLibPath)ECommons.dll</HintPath>
-            <Private>true</Private>
-        </Reference>
+
+
     </ItemGroup>
 
 
